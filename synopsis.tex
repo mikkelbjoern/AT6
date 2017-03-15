@@ -1,0 +1,127 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[danish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+
+
+\usepackage{titlepic}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{pdfpages}
+\usepackage[colorlinks = true,
+            linkcolor = blue,
+            urlcolor  = blue,
+            citecolor = blue,
+            anchorcolor = blue]{hyperref}
+\usepackage[explicit]{titlesec}
+\usepackage{pstricks}
+\usepackage[amsmath,thmmarks]{ntheorem} %pakke til at lave sætningsenvorinmets (kan ikke loades sammen med amsthm)
+\usepackage{color}
+\usepackage{tikz}
+
+%opretter environmets til sætningsstrukturen 
+\theorembodyfont{\normalfont}
+
+	
+	%sætnings environment	
+	\newtheorem{thm}{Sætning}
+
+	\theoremstyle{break}	
+	%opgave environment	
+	\newtheorem{opg}{Opgave}	
+
+	%Korrolar environment
+	\newtheorem{korollar}[thm]{Korollar}	
+	
+	%Lemma environment	
+	\newtheorem{lemma}[thm]{Lemma}
+	
+	\theoremsymbol{\ensuremath{\circ}}	
+	
+	%definition environment	
+	\newtheorem{definition}[thm]{Definition}
+	
+	%eksempel environment	
+	\newtheorem{eksempel}[thm]{Eksempel}
+	
+	
+	
+	%Bevis environment
+	\theoremstyle{nonumberplain}
+	\theoremheaderfont{%
+	\normalfont\itshape}
+	\theorembodyfont{\normalfont}
+	\theoremsymbol{\ensuremath{\square}}
+	\theoremseparator{.}
+	
+	\newtheorem{proof}{Bevis}
+	\newtheorem{los}{Løsning}
+	
+
+
+
+
+
+
+\setlength\parindent{0pt}
+
+%\titleformat{\section}{\Large\bfseries}{}{0pt}{#1}
+%\titleformat{\subsection}{\large\bfseries}{}{0pt}{#1}
+
+
+%nye komandoer
+\newcommand{\mR}{\mathbb{R}}
+\newcommand{\mZ}{\mathbb{Z}}
+\newcommand{\mN}{\mathbb{N}}
+\newcommand{\mQ}{\mathbb{Q}}
+\newcommand{\mC}{\mathbb{C}}
+\newcommand{\hs}{\hspace{2mm}}
+\newcommand{\Hs}{\hspace{4mm}}
+\newcommand{\pipe}{\hs | \hs}
+\newcommand{\lp}{\left(}
+\newcommand{\rp}{\right)}
+\newcommand{\vect}[1]{\underline{#1}}
+\newcommand{\matr}[1]{\underline{\underline{#1}}}
+\newcommand{\cnum}[1]{\raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {#1}}}}
+
+
+
+
+\author{Mikkel B. Goldschmidt\\ 3r, Nørre Gymnasium \\ AT: Matematik og fysik}
+\title{AT6 - Menneskets forhold til naturen \\ Deterministisk kaos}
+\date{\today}
+
+
+
+\begin{document}
+\maketitle
+
+\section{Indledning}
+For nylig så jeg ind af døren til en 1g-klasse der havde fysik. 
+De var ved at bestemme jordens tyngdeacceleration ved at måle med et stopur hvor hurtigt et objekt faldt til jorden. 
+Da jeg selv lavede selv samme forsøg, var jeg godt klar over, at vi nok ikke kunne trykke på stopuret på præcis det tidspunkt hvor objektet ramte jorden - måske ville vi ramme et halvt sekund for tidligt, eller et halvt sekund for sent. 
+Det tænkte vi dog ikke det store over, for vores resultat ville ikke variere så meget, så det betød nok ikke det store. 
+Hvis de regnede videre med den værdi de selv havde bestemt i stedet for værdin fra deres databog, ville de nok ikke få markant anderledes resultater. 
+Tanken bag her har virket ret intuitiv for videnskabsmænd gennem tiden: 
+\textit{En relativt lille ændring i input giver en relativt lille ændring i output}.
+Dette må nødvendigvis være sandt hvis vi skal kunne bruge målinger der indeholder små fejl.
+
+Meteorologen og matematikeren Edward Lorenz beskrev i 1963 at denne antagelse ikke altid passer. 
+Han havde opsat et differentialligningssystem der kunne beskrive vejret i fremtiden ud fra en række parametre. 
+Da han ikke kunne løse modellen analytisk, brugte han en numerisk løsning med en computer. 
+Han prøvede dog på et tidspunkt at regne ud hvordan vejret ville se ud om et år. 
+Først regnede han et år frem i modellen og fandt et resultat. 
+Han fandt dog ved et tilfælde ud af, at dette gav fuldstændigt andet resultat end først at regne et halvt år frem og derefter at bruge de tal som modellen gav til at regne et halvt år mere frem.
+Årsagen til dette skulle findes i at hans model afrundede til betydende cifre. 
+De at nogle cifre var blevet tabt, gav altså et helt andet resultat. 
+Denne relativt lille ændring gav altså ikke en relativt lille ændring i output. 
+Han navngav dette fænomen deterministisk kaos.
+
+
+
+\end{document}
