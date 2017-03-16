@@ -155,7 +155,49 @@ Blandt andet finder han pæne stedfunktioner for to legemer der påvirker hinand
 Det lykkes ham til gengæld ikke at gør det samme med tre legemer, og han opstiller det derfor som et problem som andre kan arbejde videre med. 
 
 Det har senere vist sig at grunden til at det var så svært for Newton, var at trelegemeproblemet er et system hvor der opstår kaos. 
-Denne opdagelse er ret central, for det udelukker faktisk at vi nogensinde vil kunne forudsige naturen længere ud i fremtiden, da der i langt de fleste systemer er minimum tre legemer (det kan enten være planeter, elektroner eller luftmolekyler - problemet opstår alle steder).
+
+Dette er noget jeg har læst, men jeg besluttede mig for at efterprøve det. 
+Jeg brugte derfor fysikken til at opstille et differentialligningsystem med 3 legemer, der påvirker hinanden med gravitationskræfter. 
+
+
+$$\vec{a_1} = \vec{s_1}'' = G \cdot \dfrac{m_2 \cdot (\vec{s_2} - \vec{s_1})}{dist(\vec{s_1}, \vec{s_2})^3} + G \cdot \dfrac{m_3 \cdot (\vec{s_3} - \vec{s_1})}{dist(\vec{s_1}, \vec{s_3})^3}
+$$
+
+$$\vec{a_2} =  \vec{s_2}'' = G \cdot \dfrac{m_1 \cdot (\vec{s_1} - \vec{s_2})}{dist(\vec{s_2}, \vec{s_1})^3} + G \cdot \dfrac{m_3 \cdot (\vec{s_3} - \vec{s_2})}{dist(\vec{s_2}, \vec{s_3})^3}$$
+
+$$\vec{a_3} = \vec{s_3}'' = G \cdot \dfrac{m_1 \cdot (\vec{s_1} - \vec{s_3})}{dist(\vec{s_3}, \vec{s_1})^3} + G \cdot \dfrac{m_2 \cdot (\vec{s_2} - \vec{s_3})}{dist(\vec{s_3}, \vec{s_2})^3}$$
+
+Her beskriver $\vec{s_i}$ en stedvektor for legeme $i$, 
+$\vec{a_i}$ en accelerationsvektor for legeme $i$, 
+$m_i$ en masse legeme $i$,
+$dist(v,u)$ beskriver den numeriske afstand mellem to vektorer $v$ og $u$, og
+$G$ er den universelle gravitationskonstant.
+
+Dette differentialligningssystem er et koblet, andenordens og ikke-lineært system, og vi har derfor ikke metoder til at finde generelle løsninger i det indenfor pensum.
+
+Jeg har derfor løst problemet ved at løse systemet numerisk. 
+For at gøre det simpelt har jeg gjort brug af Eulers metode.
+Systemet er lavet i 2D for at gøre illustrationen mere overskuelig.
+
+Jeg har opsat nogle startbetingelser med sted- og hastighedsvektorer for hvert legeme.
+Fra disse startbetingelser har jeg så kunnet regne en accelerationsvektor. 
+Ved at steppe et stykke i tid har jeg da fra accelerationen kunne beregne en ny hastighed og derfra en ny stedvektor.
+
+Jeg kører da to systemer oveni hinanden uafhængigt af hinanden (det ene vist med hvidt, det andet med rødt). 
+De to systemer har næsten samme startbetingelser, jeg har bare ændret startstedvektoren for en af legemerne med $0.0000001$ pixels.
+ 
+Denne algoritme har jeg da implementeret i Javascript, hvor jeg har brugt pakken P5 til at tegne stedvektorerne som cirkler.
+I bilaget ses min sourcekode sammen med et link til GitHub, hvor jeg løbende opdaterer koden op til eksamen, hvis jeg finder eventuelle småfejl eller der er noget æstetisk, jeg vil ændre på. 
+
+Jeg har da kørt simulationen.
+Til at starte med kan man kun se det ene system, da det bliver printet oveni det andet, men efter ca. 30 sekunder (med de startbetingelser jeg har opsat) bliver kaos tydeligt. 
+De to systemer begynder at opføre sig helt forskelligt. 
+Dette viser klart hvordan en en approksimation af det røde systems startbetingelser, ikke giver en approksimation af det røde systems betingelser efter 30 sekunder. 
+
+
+
+Denne opdagelse er ret central, for det udelukker faktisk at vi nogensinde vil kunne forudsige naturen længere ud i fremtiden, da der i langt de fleste systemer er minimum tre legemer (det kan enten være planeter, elektroner eller luftmolekyler - problemet opstår alle steder). 
+Og denne simulation viser os netop at kaos opstår i systemer med 3 legemer.
 
 Ved at indse at der opstår kaos i alle systemer med minimum tre legemer, bliver vi faktisk også nødt til at indse, at naturen er umulig at forudsige, så længe vi ikke kan måle og regne uendelig præcist.
 
