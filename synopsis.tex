@@ -106,8 +106,8 @@
 
 \section{Indledning}
 I 1814 skrev Laplace om en dæmon, der kendte til altings placering, fart, temperatur og alle andre fysiske og kemiske egenskaber ved verden.
-Laplace argumentere for, at denne dæmon måtte kende alt fremtid og alt fortid, hvis den ellers var i stand til at kigge på alt dette data. 
-Han skrev om sin idé om at en person med alt denne viden, måtte kunne beskrive verden i en matematisk ligning. 
+Laplace argumenterede for, at denne dæmon måtte kende alt fremtid og alt fortid, hvis den ellers var i stand til at kigge på alt dette data. 
+Han skrev om sin idé om, at en person med alt denne viden, måtte kunne beskrive verden i en matematisk ligning. 
 Ultimativt skulle det være drømmen for naturvidenskaben: At vide nok til at kunne beskrive verden perfekt - og dermed vide alt.
 
 For 50 år siden ødelagde matematikeren og metrologen Edward Lorenz dog denne drøm. 
@@ -120,7 +120,7 @@ Han fandt dog ved et tilfælde ud af, at dette gav et fuldstændigt andet result
 Det, at nogle cifre var blevet tabt, gav altså et helt andet resultat. 
 Denne relativ lille ændring i input gav altså ikke en relativ lille ændring i output. 
 Han navngav dette fænomen \textit{deterministisk kaos}.
-Det skulle vise sig, at deterministisk kaos var et argument for, at Laplace dæmon aldrig ville kunne eksistere i virkeligheden.
+Det skulle vise sig, at deterministisk kaos var et argument for, at mennesker aldrig i praksis ville kunne få den samme viden som Laplace' dæmon.
 
 \section{Problemformulering}
 I hvor høj en grad begrænser en kaotisk verden vores beskrivelse af naturen?
@@ -146,16 +146,16 @@ Lorenz definerer kaos på følgende måde:
 Han fandt adskillige differentialligningssystemer hvor kaos opstår.
 Kaos er derefter blevet opdaget i mange systemer, der beskriver naturen. 
 
-Til besvarelsen af dette spørgsmål har jeg refereret til andre der har brugt naturvidenskabelig metode. 
+Til besvarelsen af dette spørgsmål har jeg refereret til andre, der har brugt naturvidenskabelig metode. 
 Den vej jeg har arbejdet i hele denne proces, har i virkeligheden været en kopi af den måde, som Lorenz arbejdede på, da han opdagede kaos som fænomen.
 
 \subsection{Trelegemeproblemet}
 I sin bog, Principia, skrev Newton blandt andet om sine gravitationslove. 
-Han overvejede ud fra disse love hvordan forskellige objekter ville opføre sig i forhold til hinanden. 
-Blandt andet finder han pæne stedfunktioner for to legemer der påvirker hinanden med gravitationskræfter. 
-Det lykkes ham til gengæld ikke at gør det samme med tre legemer, og han opstiller det derfor som et problem som andre kan arbejde videre med. 
+Han overvejede ud fra disse love, hvordan forskellige objekter ville opføre sig i forhold til hinanden. 
+Blandt andet finder han pæne stedfunktioner for to legemer, der påvirker hinanden med gravitationskræfter. 
+Det lykkedes ham til gengæld ikke at gøre det samme med tre legemer, og han opstiller det derfor som et problem, som andre kan arbejde videre med. 
 
-Det har senere vist sig at grunden til at det var så svært for Newton, var at trelegemeproblemet er et system hvor der opstår kaos. 
+Det har senere vist sig, at grunden til at det var så svært for Newton, var at trelegemeproblemet er et system, hvor der opstår kaos. 
 
 Dette er noget jeg har læst, men jeg besluttede mig for at efterprøve det. 
 Jeg brugte derfor fysikken til at opstille et differentialligningsystem med 3 legemer, der påvirker hinanden med gravitationskræfter. 
@@ -183,12 +183,13 @@ Systemet er lavet i 2D for at gøre illustrationen mere overskuelig.
 Jeg har opsat nogle startbetingelser med sted- og hastighedsvektorer for hvert legeme.
 Fra disse startbetingelser har jeg så kunnet regne en accelerationsvektor. 
 Ved at steppe et stykke i tid har jeg da fra accelerationen kunne beregne en ny hastighed og derfra en ny stedvektor.
+Algoritmen er beskrevet i et forsimplet flowchart, som er vedlagt.
 
 Jeg kører da to systemer oveni hinanden uafhængigt af hinanden (det ene vist med hvidt, det andet med rødt). 
 De to systemer har næsten samme startbetingelser, jeg har bare ændret startstedvektoren for en af legemerne med $0.0000001$ pixels.
  
 Denne algoritme har jeg da implementeret i Javascript, hvor jeg har brugt pakken P5 til at tegne stedvektorerne som cirkler.
-I bilaget ses min sourcekode sammen med et link til GitHub, hvor jeg løbende opdaterer koden op til eksamen, hvis jeg finder eventuelle småfejl eller der er noget æstetisk, jeg vil ændre på. 
+I bilaget ses min sourcekode sammen med et link til GitHub, hvor jeg løbende opdaterer koden op til eksamen, hvis jeg finder eventuelle småfejl, eller der er noget æstetisk, som jeg vil ændre på. 
 
 Jeg har da kørt simulationen.
 Til at starte med kan man kun se det ene system, da det bliver printet oveni det andet, men efter ca. 30 sekunder (med de startbetingelser jeg har opsat) bliver kaos tydeligt. 
@@ -197,21 +198,21 @@ Dette viser klart hvordan en en approksimation af det røde systems startbetinge
 
 
 
-Denne opdagelse er ret central, for det udelukker faktisk at vi nogensinde vil kunne forudsige naturen længere ud i fremtiden, da der i langt de fleste systemer er minimum tre legemer (det kan enten være planeter, elektroner eller luftmolekyler - problemet opstår alle steder). 
+Denne opdagelse er ret central, for det udelukker faktisk, at vi nogensinde vil kunne forudsige naturen længere ud i fremtiden, da der i langt de fleste systemer er minimum tre legemer (det kan enten være planeter, elektroner eller luftmolekyler - problemet opstår alle steder). 
 Og denne simulation viser os netop, at kaos opstår i systemer med 3 legemer.
 
 Ved at indse at der opstår kaos i alle systemer med minimum tre legemer, bliver vi faktisk også nødt til at indse, at naturen er umulig at forudsige, så længe vi ikke kan måle og regne uendelig præcist.
 
 Til besvarelsen af dette delspørgsmål har jeg brugt fysikken til at beskrive naturen med en matematisk model. 
 Herfra har jeg da kunnet lade matematikken tage over, og ved brug af numerisk metode kunne finde en løsning i modellen. 
-Fysikken kan altså beskrive naturen hvor matematikken kan se de logiske konsekvenser af beskrivelsen.
+Fysikken kan altså beskrive naturen, hvor matematikken kan se de logiske konsekvenser af beskrivelsen.
 
 \subsection{Videnskabelig praksis i en kaotisk verden}
 Når vi laver naturvidenskab, er det ofte vores mål, at få opstillet regler der er så generelle, at de kan bruges til at forudsige verden med. 
 Med tilstrækkelige oplysninger, mener vi at kunne give en nogenlunde beskrivelse af hvad der kommer til at ske med verden lige om lidt.
 Eksempelvis er de fleste stærkt overbeviste om at når du giver slip på en blyant, så falder den til gulvet. 
 Lidt forudsigelighed har vi altså i verden. 
-En kritiker kunne så spørge hvorfor kaos overhovedet er relevant, når nu vi kan forudsige nogle ting. 
+En kritiker kunne så spørge, hvorfor kaos overhovedet er relevant, når nu vi kan forudsige nogen ting. 
 Selvom vi kan lave forudsigelser om verden på kort sigt, så opstår der problemer på længere sigt. 
 Vi oplever det dagligt efter nyhederne om aftenen, når metrologen går på. 
 Metrologerne lever af at forudsige verden et stykke frem i tiden, men alle ved også godt, at de ofte tager fejl, og at man aldrig kan regne med dem mere en et par dage frem. 
@@ -248,11 +249,11 @@ Det er dog værd at bemærke, at jeg har hevet teknikker ind fra datalogi, som a
 
 \section{Konklusion}
 Deterministisk kaos er når bare små afvigelser i et systems startbetingelser, har store indflydelser på systemet over længere tid.
-Fænomenet opstår mange stedet, specielt vigtigt er det at det opstår mange stedet i naturen. 
+Fænomenet opstår mange steder, specielt vigtigt er det at det opstår mange stedet i naturen. 
 Et sted hvor det kommer til udtryk i Newtons trelegemeproblem, hvor man kan se kaos direkte i et system meget hurtigt.
 
-Det deterministiske kaos gør ikke vores naturvidenskab ubrugelig, men vi må indse at der er begrænsninger for hvor meget vi kan forudsige, specielt hvor langt ud i fremtiden vi kan forudsige ting. 
-Dette passer ikke umiddelbart med den intuition som man har haft for naturvidenskaben meget længe. 
+Det deterministiske kaos gør ikke vores naturvidenskab ubrugelig, men vi må indse, at der er begrænsninger for, hvor meget vi kan forudsige, specielt hvor langt ud i fremtiden vi kan forudsige ting. 
+Dette passer ikke umiddelbart med den intuition, som man længe har haft for naturvidenskaben. 
 Dog kan vi stadig bruge den naturvidenskab vi har, da de små fejlmålinger ikke har den store indflydelse på kort sigt. 
 Altså er den eneste intuition vi må give afkald på, at vi kan forudsige fremtiden helt præcist med tilstrækkelige oplysninger.
 
@@ -290,6 +291,8 @@ Filosofisk får de kvantemekanikken altså en helt anden slagkraft, når den kom
 \begin{itemize}
 	\item Sourcekode til simulation. Link til GitHub:\\ \url{https://github.com/mikkelbjoern/threeBodyProblem}
 	\item Forsimplet flowchart over algoritmen brugt i min simulation
+	\item Screencast af simulationen:\\
+	\url{https://www.youtube.com/watch?v=7wqqHaAeYVE&feature=youtu.be&hd=1}
 	
 \end{itemize}
 
