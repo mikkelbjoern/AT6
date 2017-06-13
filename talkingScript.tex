@@ -1,0 +1,187 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[danish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+
+
+\usepackage{titlepic}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{pdfpages}
+\usepackage[colorlinks = true,
+            linkcolor = blue,
+            urlcolor  = blue,
+            citecolor = blue,
+            anchorcolor = blue]{hyperref}
+\usepackage[explicit]{titlesec}
+\usepackage{pstricks}
+\usepackage[amsmath,thmmarks]{ntheorem} %pakke til at lave sætningsenvorinmets (kan ikke loades sammen med amsthm)
+\usepackage{color}
+\usepackage{tikz}
+
+%opretter environmets til sætningsstrukturen 
+\theorembodyfont{\normalfont}
+
+	
+	%sætnings environment	
+	\newtheorem{thm}{Sætning}
+
+	\theoremstyle{break}	
+	%opgave environment	
+	\newtheorem{opg}{Opgave}	
+
+	%Korrolar environment
+	\newtheorem{korollar}[thm]{Korollar}	
+	
+	%Lemma environment	
+	\newtheorem{lemma}[thm]{Lemma}
+	
+	\theoremsymbol{\ensuremath{\circ}}	
+	
+	%definition environment	
+	\newtheorem{definition}[thm]{Definition}
+	
+	%eksempel environment	
+	\newtheorem{eksempel}[thm]{Eksempel}
+	
+	
+	
+	%Bevis environment
+	\theoremstyle{nonumberplain}
+	\theoremheaderfont{%
+	\normalfont\itshape}
+	\theorembodyfont{\normalfont}
+	\theoremsymbol{\ensuremath{\square}}
+	\theoremseparator{.}
+	
+	\newtheorem{proof}{Bevis}
+	\newtheorem{los}{Løsning}
+	
+
+
+
+
+
+
+\setlength\parindent{0pt}
+
+%\titleformat{\section}{\Large\bfseries}{}{0pt}{#1}
+%\titleformat{\subsection}{\large\bfseries}{}{0pt}{#1}
+
+
+%nye komandoer
+\newcommand{\mR}{\mathbb{R}}
+\newcommand{\mZ}{\mathbb{Z}}
+\newcommand{\mN}{\mathbb{N}}
+\newcommand{\mQ}{\mathbb{Q}}
+\newcommand{\mC}{\mathbb{C}}
+\newcommand{\hs}{\hspace{2mm}}
+\newcommand{\Hs}{\hspace{4mm}}
+\newcommand{\pipe}{\hs | \hs}
+\newcommand{\lp}{\left(}
+\newcommand{\rp}{\right)}
+\newcommand{\vect}[1]{\underline{#1}}
+\newcommand{\matr}[1]{\underline{\underline{#1}}}
+\newcommand{\cnum}[1]{\raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {#1}}}}
+
+
+
+
+\author{Mikkel B. Goldschmidt\\ 3r, Nørre Gymnasium \\ AT: Matematik og fysik}
+\title{AT6 - Menneskets forhold til naturen \\ Deterministisk kaos}
+\date{\today}
+
+
+\usepackage{csquotes}
+
+\begin{document}
+\maketitle
+Her til morgen da jeg var på vej ud af døren, glemte jeg min mobil inde på bordet. 
+Jeg løb derfor ind og hentede den - det tog ikke mere end måske 30 sekunder. 
+Efter at have hentet mobilen tog jeg cyklen og cyklede afsted imod skolen som jeg ellers ville have gjort. 
+På vej opad bakken ude foran skolen så jeg så en bil der kørte med minimum 90 i timen -  den havde helt sikkert ikke kunnet nå at stoppe. 
+Havde jeg ikke glemt min telefon, så kunne jeg være endt foran den bil og mit liv ville have ændret sig for evigt.
+Så en forholdvist ændring i mit liv ender med over tid at gøre en kæmpe forskel. 
+Dette er ikke en antagelse vi normalt arbejder med i naturvidenskab. 
+Udfører vi et forsøg med 0.5 K højere temperatur forventer vi ikke at forsøgets udfald ændrer sig markant. 
+Men verden ser ikke ud til at passe så godt på denne optagelse. 
+Det blev påvist af en meteorolog ved navn Lorenz. 
+Han viste i nogle af sine vejrmodeller at ændringer så små som afrunding til betydende cifre kunne have afgørende indflydelse på modellens forudsigelser. 
+Dette fænomen hvor en forholdsvist lille ændring har stor betydning kaldte han for "kaos". 
+
+Jeg vil i denne fremlæggelse snakke om hvilken betydning dette kaos har for naturvidenskab - for kan vi overhovedet tillade os som videnskabsmænd at lave forudsigelser om fremtiden med modeller der indeholder kaos. 
+Jeg vil derudover fremvise min påvisning af kaos i Newtons gravitationslove.
+
+Kaos er som sagt en egenskab et system kan have hvor små ændringer over tid gør en stor forskel. 
+Klassiske eksempler på dette er dobbelt penduler, billiardborde, vejrmodeller,.. mm.
+Jeg har valgt at kigge på Newtons gravitationslove, da jeg synes at disse er meget nemme at pege på i virkeligheden omkring os. 
+Specifikt har jeg opsat en differentiallignigsmodel der beskriver trelegemeproblemet med Newtons gravitationslove. 
+Jeg har vist skrevet i min synopse at dette system ikke har en analystiks løsning - dette er forkert, den er bare en afsindig grim uendelig konvergerende sum, hvorfor det ikke i praksis er nogen særlig farbar vej at regne ud fra. 
+Jeg har derfor valgt at udnytte numerisk metode til at løse differentialligningssystemet. 
+I min synopse er min model beskrevet, så jeg vil ikke gå vildt meget i detaljer med de tekniske detaljer med mindre I spørger ind til det. 
+Men opsummeret har jeg opstillet en differentialligningsmodel der beskriver 3 objekter der påvirker hinanden med gravitation. 
+De har alle sammen en tilhørende masse og to todimensionelle vektorer der beskriver hhv. hastighed og sted. 
+Jeg har da kørt to systemer uafhængigt af hinanden oveni hinanden med næsten samme startbetingelser - det ene system havde bare fået rykket et legeme mindre end en 10000-del pixel i forhold til det tilsvarende legeme i det andet system.
+
+\begin{center}
+    --- Start simulation ---
+\end{center}
+
+Vi kan her kun se det ene system. 
+Det skyldes at de to systemer har næsten de samme placeringer på skærmen, og derfor kan man kun se det ene.
+Ind til videre ser det jo meget godt ud - de opfører sig ens og det ser derfor ikke ud som om, at den lille ændring i startbetingelser har indflydelse. 
+Men prøv nu at lægge mærke til de små legemer.
+Bag det ene af dem kan man lige se lidt hvidt der kigger frem. 
+Meget hurtigt ser vi kaos. 
+Den lille bitte ændring i startpositionen, ender med at have meget stor virkning på systemet efter forholdsvist kort tid. 
+Da dette system er bygget på Newtons gravitationslove, må de samme egenskaber gælde for vores solsystem og universet generelt. 
+Det må desuden gælde for alle andre objekter med masse, hvorfor man kunne tænke at vi intet kan forudsige hvis vi bare har den mindste smule usikkerhed i vores observationer. 
+Og dette resultat stiller så det meget fundamentale spørgsmål, om vi overhovedet kan stole på forudsigelser lavet med naturvidenskab.
+
+Dog ved vi at vi kan lave mange meget præcise forudsigelser. 
+Vi kan forudsige ned til sekunders præcision hvornår der kommer solformørkelse, og præcis hvor det sker.
+Derfor kan vi jo også sige at vores forudsigelser ikke er helt uduelige. 
+Den store forskel er hvor lang tid ude i fremtiden vi vil forudsige ting, og hvor mange variable der indgår.
+Når først vi snakker om meget lang tid ude i fremtiden, så er alt hvad vi forudsiger meget usandsynligt.
+Vi bliver derfor nødt til at acceptere at der er begrænsninger for hvad vi kan forudsige med videnskaben.
+
+Dette spiller ikke så godt sammen med den intuition vi mennesker har om naturen.
+Jeg ved i hvert fald at jeg selv havde en tro på at naturen var deterministisk, da jeg selv startede i gymnasiet - helt frem til at jeg for første gang blev introduceret til tilfældighederne i kvantemekanikken. 
+
+Det er så her min synopse sluttede. 
+Jeg har siden kigget videre og til min store lettelse fundet nyt forskning på området.
+Selvom kaos ser helt forfærdeligt usystematisk ud, er man begyndt at kunne finde systemer i hvordan kaos opfører sig. 
+Man har indført systemkonstanter der beskriver hvor sensitive kaotiske systemer er overfor ændringer. 
+Jeg forstod ikke den matematik der blev beskrevet i artiklen, så jeg gik i gang selv. 
+Jeg lavede et forsøg på mit system hvor jeg målte den tid det tog for de to systemer at blive tydeligt forskellige på skærmen i forhold til hvor meget den ene planet var forskudt. 
+Jeg har derefter forsøgt at finde en model der kunne beskrive en sammenhæng. 
+Jeg fandt en model på formen:
+$$ t(d) = k \cdot \frac{1}{d^n} - k $$
+
+Det er helt sikkert ikke nogen perfekt model, og den ligner heller ikke det jeg så i de artikler jeg læste. 
+De gjorde dog brug af funktioner jeg ikke forstod, og jeg valgte derfor at gøre forsøget selv.
+Det resultat er man kan finde lidt orden i dette kaotiske system er lidt tilfredsstillende da det passer ind i min menneskelige intuition om at der er orden i naturen. 
+
+Overordnet set har jeg i dette projekt fundet at der er en begrænsning for hvor præcist vi mennesker kan forudsige hvordan naturen opfører sig. 
+Vi ser dette direkte ud af det kaos jeg har påvist i ved hjælp af Newtons love i trelegemeproblemet. 
+Dette passer ikke så godt ind i den menneskelige intuition om at verden kan forudsiges hvis man kender til nok parametre på forhånd. 
+Heldigvis har jeg også fundet at vi kan forudsige ting om kaos, hvorfor vores naturvidenskab ikke er ubrugelig, men kun begrænset. 
+
+Jeg har i dette AT-forløb brugt matematik som et redskab i fysikken. 
+Fysikken har jeg brugt til at opstille en model ud fra fysiske love som andre har opstillet.
+Denne model har jeg da kunnet behandle med matematikken hvilket har givet mig oplysninger om det fysiske fænomen jeg har forsøgt at beskrive.
+
+Dette forløb ligner lidt det forrige AT-førløb jeg lavede omhandlende sygdomsspredning hvor jeg også anvendte numerisk metode til at lave nogle forudsigelser i en differentialligningsmodel. 
+Desuden har den lighed i forhold til behandlet emne med det første forløb jeg havde omkring verdensbilleder hvor vi bla. snakkede om forudsigelser at planeters placeringer på himlen.
+
+
+
+
+
+
+\end{document}
